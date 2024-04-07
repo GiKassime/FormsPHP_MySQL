@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Treinando CRUD</title>
+    <title>Confirmação</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/style.css" >
   </head>
   <body style="background-color: #FFF7FC;">
     <div class="container">
@@ -16,9 +17,11 @@
             $telefone = $_POST['telefone'];
             $email = $_POST['email'];
             $data_nascimento = $_POST['data_nascimento'];
-
-            $sql = "INSERT INTO `pessoa`(`nome`, `endereco`, `telefone`, `email`, `data_nascimento`) VALUES ('$nome','$endereco','$telefone','$email','$data_nascimento')";
+            $arquivo_foto = $_FILES['foto']; 
+            $nome_foto = moverFoto($arquivo_foto);
+            $sql = "INSERT INTO `pessoa`(`nome`, `endereco`, `telefone`, `email`, `data_nascimento`, `foto`) VALUES ('$nome','$endereco','$telefone','$email','$data_nascimento','$nome_foto')";
             if(mysqli_query($conexao, $sql)){
+              echo "<img class='mostra_foto' src='img/$nome_foto' title='$nome_foto'>";
                mensagem("$nome cadastrado com sucesso","success");
             }else{
                 mensagem("$nome não foi cadastrado","danger");
