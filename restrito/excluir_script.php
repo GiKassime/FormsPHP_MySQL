@@ -1,9 +1,11 @@
+
+<?php include "../validar.php";?>
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Alteração de Cadastro</title>
+    <title>Exclusão de Cadastro</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" >
   </head>
   <body style="background-color: #FFF7FC;">
@@ -13,19 +15,13 @@
             include "./conexao.php";
             $id = $_POST['id'];
             $nome = $_POST['nome'];
-            $endereco = $_POST['endereco'];
-            $telefone = $_POST['telefone'];
-            $email = $_POST['email'];
-            $data_nascimento = $_POST['data_nascimento'];
-
-           // $sql = "INSERT INTO `pessoa`(`nome`, `endereco`, `telefone`, `email`, `data_nascimento`) VALUES ('$nome','$endereco','$telefone','$email','$data_nascimento')";
-           $sql = "UPDATE pessoa set `nome` = '$nome', `endereco` = '$endereco', `telefone` = '$telefone', `email` = '$email', `data_nascimento` = '$data_nascimento' WHERE cod_pessoa = $id";
+           $sql = "DELETE FROM pessoa WHERE cod_pessoa = $id";
 
             if(mysqli_query($conexao, $sql)){
-               mensagem("$nome alterado com sucesso","success");
+               mensagem("$nome excluído com sucesso","success");
             }else{
-                mensagem("$nome não foi alterado","danger");
-            }//mandar para o bando de dados, retorna se deu certo ou nãõ
+                mensagem("$nome não foi excluído","danger");
+            }//mandar para o bando de dados, retorna se excluiu ou não
 
            
            ?>

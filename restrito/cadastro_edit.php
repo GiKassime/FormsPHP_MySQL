@@ -1,3 +1,4 @@
+<?php include "../validar.php";?>
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -5,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alteração de cadastro</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/style.css" >
 </head>
   <body style="background-color: #FFF7FC;">
   <?php 
@@ -13,6 +15,7 @@
     $sql = "SELECT * FROM pessoa WHERE cod_pessoa = $id";
     $dados = mysqli_query($conexao,$sql);
     $linha = mysqli_fetch_assoc($dados);
+    $linha['foto'] = verificaImagem($linha['foto']);
   ?>
   <a href="javascript:history.back()" class="btn btn-primary">Voltar</a>
 
@@ -20,7 +23,7 @@
         <div class="row">
             <div class="coluna">
                 <h1>Cadastro</h1>
-                <form action="edit_script.php" method="POST">
+                <form action="edit_script.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="nome" >Nome Completo</label>
                         <input type="text" class="form-control" name="nome" required value="<?php echo $linha['nome'];?>">
@@ -46,6 +49,10 @@
                     <div class="form-group">
                         <label for="data_nascimento">Data de Nascimento</label>
                         <input type="date" class="form-control" name="data_nascimento" value="<?php echo $linha['data_nascimento'];?>">
+                    </div>
+                    <div class="form-group">
+                      <label for="foto"><img src="img/<?php echo $linha['foto'];?>" class="mostra_foto">Foto</label>
+                        <input type="file" class="form-control" name="foto" accept="image/*">
                     </div>
                     <div class="form-group">
                       <input type="submit" class="btn btn-success" value="Salvar Alterações">

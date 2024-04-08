@@ -1,0 +1,11 @@
+.mostra_foto{
+    max-width: 250px;
+    display: block;
+   
+}
+.lista_foto {
+    width: 50px; /* Tamanho do círculo */
+    height: 50px; /* Tamanho do círculo */
+    border-radius: 50px; 
+ 
+}
