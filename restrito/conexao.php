@@ -10,7 +10,7 @@
     $conexao = mysqli_connect($server,$user,$pass,$bd);
     
     function mensagem($texto,$tipo){
-       echo "<div class='alert alert-$tipo'   role='alert'>$texto</div>";
+       echo "<div class='alert alert-$tipo'   role='alert' id='alert' hidden>$texto</div>";
     }
     function mostraData($data){
         $vetor_data = explode('-',$data);
