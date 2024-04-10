@@ -13,7 +13,7 @@
           <a class="nav-link" href="./index.php">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./restrito/cadastro.php">Cadastrar</a>
+          <a class="nav-link" href="../cadastro.php">Cadastrar</a>
         </li>
             
       </ul>
