@@ -10,15 +10,15 @@
             include_once "./conexao.php";
             $id = $_POST['id'];
             $nome = $_POST['nome'];
-           
+            $foto = mysqli_fetch_assoc(mysqli_query($conexao,"SELECT foto FROM pessoa WHERE cod_pessoa = $id"))['foto'];
             $sql = "DELETE FROM pessoa WHERE cod_pessoa = $id";
 
             if(mysqli_query($conexao, $sql)){
-               
+                  excluiImagem($foto);
                mensagem("$nome excluído com sucesso","success");
             }else{
                 mensagem("$nome não foi excluído","danger");
-            }//mandar para o bando de dados, retorna se excluiu ou não
+            }//verifica a conexão c banco de dados e retorna se excluiu ou não
 
            
            ?>

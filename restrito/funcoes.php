@@ -39,4 +39,16 @@ function clear($conexao, $texto){
     $texto = htmlspecialchars($texto);
     return $texto;
 }
+function excluiImagem($imagem){
+    $caminho_imagem = "img/" . $imagem;
+    
+    if(file_exists($caminho_imagem)) {
+        if(unlink($caminho_imagem)) {
+            return true; // Imagem excluída com sucesso
+        } else {
+           
+            return mensagem("danger","Falha ao excluir a imagem"); // Falha ao excluir a imagem
+        }
+    }
+}
 ?>
