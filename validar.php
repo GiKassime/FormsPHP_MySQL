@@ -32,7 +32,7 @@
   }
     if (!isset($_SESSION['login_user'])) {
         echo "<script>
-      confirm('Faça o login primeiro!');
+            confirm('Faça o login primeiro!');
             window.location.href = '../index.php'; // Redireciona para a página de login
         
       </script>";

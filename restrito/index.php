@@ -2,6 +2,8 @@
 <html lang="pt-br">
   <?php include_once './partials/head.php';?>
   <body style="background-color: #FFF7FC;">
+  <?php include_once './partials/nav.php'?>
+
     <div class="container">
         <div class="row  w-100 p-3 d-flex flex-column text-center  justify-content-center" style="margin:1%;">
             <div class="col">

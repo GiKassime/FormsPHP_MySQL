@@ -4,10 +4,12 @@
 <?php include_once './partials/head.php';?>
   
   <body style="background-color: #FFF7FC;">
+  <?php include_once './partials/nav.php'?>
+
     <div class="container">
         <div class="row">
            <?php 
-            include "./conexao.php";
+            include_once "./conexao.php";
             $nome = clear($conexao,$_POST['nome']);
             $endereco = clear($conexao, $_POST['endereco']);
             $telefone = clear($conexao,$_POST['telefone']);
@@ -35,7 +37,7 @@
 
            
            ?>
-           <a href="javascript:history.back()" class="btn btn-primary">Voltar</a>
+           <a href="index.php" class="btn btn-primary">Voltar</a>
         </div>
    </div>
    

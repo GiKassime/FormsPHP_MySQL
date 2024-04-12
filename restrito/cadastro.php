@@ -4,7 +4,9 @@
 <?php include_once './partials/head.php';?>
   
   <body style="background-color: #FFF7FC;">
-  <a href="javascript:history.back()" class="btn btn-primary">Voltar</a>
+  <?php include_once './partials/nav.php'?>
+
+  <a href="index.php" class="btn btn-primary">Voltar</a>
 
     <div class="container">
         <div class="row">

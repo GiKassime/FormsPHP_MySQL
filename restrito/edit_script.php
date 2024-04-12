@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
            <?php 
-            include "./conexao.php";
+            include_once "./conexao.php";
             $id = $_POST['id'];
             $nome = $_POST['nome'];
             $endereco = $_POST['endereco'];

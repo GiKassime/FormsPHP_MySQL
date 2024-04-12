@@ -5,6 +5,8 @@
   <?php include_once './partials/head.php';?>
   
   <body style="background-color: #FFF7FC;">
+  <?php include_once './partials/nav.php'?>
+
   <?php 
   
         $pesquisa = $_POST['busca'] ?? '' ;
@@ -97,6 +99,8 @@
             document.getElementById('nome_pessoa').innerHTML = nome;
             document.getElementById('cod_pessoa').value = id;
             document.getElementById('nome_pessoa1').value = nome;
+            document.getElementById('nome_pessoa1').value = foto;
+
         }
     </script>
    <?php include_once './partials/scripts.php';?>

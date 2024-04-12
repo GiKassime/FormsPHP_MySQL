@@ -7,13 +7,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+          <a class="nav-link active" aria-current="page" href="http://localhost/FormsPHP_MySQL/restrito/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./index.php">Login</a>
+          <a class="nav-link" href="http://localhost/FormsPHP_MySQL/index.php">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../cadastro.php">Cadastrar</a>
+          <a class="nav-link" href="http://localhost/FormsPHP_MySQL/cadastro.php">Cadastrar</a>
         </li>
             
       </ul>

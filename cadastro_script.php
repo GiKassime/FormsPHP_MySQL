@@ -6,7 +6,6 @@ $login = clear($conexao,$_POST["login"]);
 $query_select = "SELECT login_user FROM usuarios WHERE login_user = '$login'";
 $select = mysqli_query($conexao, $query_select);//conexão bbd
 $logarray = mysqli_fetch_array($select)["login_user"];//Pega no banco de dados a chave login_user e depois vai comparar para ver se ja existe um login_user assim no banco de dados
-echo "TO AQUI";
 print_r($logarray);
 if($logarray == $login){
 

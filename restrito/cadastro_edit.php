@@ -4,15 +4,17 @@
   <?php include_once './partials/head.php';?>
   
   <body style="background-color: #FFF7FC;">
+  <?php include_once './partials/nav.php'?>
+
   <?php 
-    include "./conexao.php";
+    include_once "conexao.php";
     $id = $_GET['id'] ?? '';
     $sql = "SELECT * FROM pessoa WHERE cod_pessoa = $id";
     $dados = mysqli_query($conexao,$sql);
     $linha = mysqli_fetch_assoc($dados);
     $linha['foto'] = verificaImagem($linha['foto']);
   ?>
-  <a href="javascript:history.back()" class="btn btn-primary">Voltar</a>
+  <a href="index.php" class="btn btn-primary">Voltar</a>
 
     <div class="container">
         <div class="row">
