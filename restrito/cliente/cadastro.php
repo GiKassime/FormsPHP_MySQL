@@ -1,18 +1,20 @@
 
 <!doctype html>
 <html lang="pt-br">
-<?php include_once './partials/head.php';?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/head.php";?>
+
   
   <body style="background-color: #FFF7FC;">
-  <?php include_once './partials/nav.php'?>
+  <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/nav.php";?>
 
-  <a href="index.php" class="btn btn-primary">Voltar</a>
+
+  <a href="./index.php" class="btn btn-primary">Voltar</a>
 
     <div class="container">
         <div class="row">
             <div class="coluna">
                 <h1>Cadastro</h1>
-                <form action="cadastro_script.php" method="POST" enctype="multipart/form-data">
+                <form action="./cadastro_script.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="nome" >Nome Completo</label>
                         <input type="text" class="form-control" name="nome" required>
@@ -49,7 +51,8 @@
         </div>
    </div>
    
-   <?php include_once './partials/scripts.php';?>
+   <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/scripts.php";?>
+  
    
 
   </body>

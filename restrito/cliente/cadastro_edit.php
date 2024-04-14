@@ -1,26 +1,27 @@
-<?php include "../validar.php";?>
 <!doctype html>
 <html lang="pt-br">
-  <?php include_once './partials/head.php';?>
+<?php include_once$_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/head.php";?>
+  
   
   <body style="background-color: #FFF7FC;">
-  <?php include_once './partials/nav.php'?>
+  <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/nav.php";?>
 
   <?php 
-    include_once "conexao.php";
+    include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/conexao.php";
+    
     $id = $_GET['id'] ?? '';
     $sql = "SELECT * FROM pessoa WHERE cod_pessoa = $id";
     $dados = mysqli_query($conexao,$sql);
     $linha = mysqli_fetch_assoc($dados);
     $linha['foto'] = verificaImagem($linha['foto']);
   ?>
-  <a href="index.php" class="btn btn-primary">Voltar</a>
+  <a href="./index.php" class="btn btn-primary">Voltar</a>
 
     <div class="container">
         <div class="row">
             <div class="coluna">
                 <h1>Cadastro</h1>
-                <form action="edit_script.php" method="POST" enctype="multipart/form-data">
+                <form action="./edit_script.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="nome" >Nome Completo</label>
                         <input type="text" class="form-control" name="nome" required value="<?php echo $linha['nome'];?>">
@@ -48,7 +49,7 @@
                         <input type="date" class="form-control" name="data_nascimento" value="<?php echo $linha['data_nascimento'];?>">
                     </div>
                     <div class="form-group">
-                      <label for="foto"><img src="img/<?php echo $linha['foto'];?>" class="mostra_foto">Foto</label>
+                      <label for="foto"><img src="../img/<?php echo $linha['foto'];?>" class="mostra_foto">Foto</label>
                         <input type="file" class="form-control" name="foto" accept="image/*">
                     </div>
                     <div class="form-group">
@@ -61,7 +62,8 @@
         </div>
    </div>
    
-   <?php include_once './partials/scripts.php';?>
+  <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/scripts.php";?>
+    
    
 
   </body>

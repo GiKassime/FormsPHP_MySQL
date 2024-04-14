@@ -17,7 +17,7 @@ function moverFoto($vetor_foto){
         $extensao =  ".".$vtipo[1] ?? '';
         if((!$vetor_foto['error']) and ($vetor_foto['size'] <= 5000000) and ($tipo == "image") and ($extensao != ".svg" and $extensao != ".svg+xml")){
             $nome_arq = md5(date('Ymdhms')).$extensao;
-            move_uploaded_file($vetor_foto['tmp_name'], "img/".$nome_arq);
+            move_uploaded_file($vetor_foto['tmp_name'], "../img/".$nome_arq);
             return $nome_arq;
         } else {
             return 0;
@@ -28,7 +28,7 @@ function moverFoto($vetor_foto){
 }
 
 function verificaImagem($nome_imagem){
-    if(!file_exists("img/".$nome_imagem) or $nome_imagem == '0' or $nome_imagem === "" or $nome_imagem === null){
+    if(!file_exists("../img/".$nome_imagem) or $nome_imagem == '0' or $nome_imagem === "" or $nome_imagem === null){
         $nome_imagem = "sem_foto.jpg";
     }
     return $nome_imagem;
@@ -39,16 +39,16 @@ function clear($conexao, $texto){
     $texto = htmlspecialchars($texto);
     return $texto;
 }
-function excluiImagem($imagem){
-    $caminho_imagem = "img/" . $imagem;
-    
-    if(file_exists($caminho_imagem)) {
-        if(unlink($caminho_imagem)) {
+function excluiImagem($imagem) {
+    $caminho_imagem = "../img/" . $imagem;
+
+    if (is_file($caminho_imagem)) {
+        if (unlink($caminho_imagem)) {
             return true; // Imagem excluída com sucesso
         } else {
-           
-            return mensagem("danger","Falha ao excluir a imagem"); // Falha ao excluir a imagem
+            return mensagem("Falha ao excluir a imagem", "danger"); // Falha ao excluir a imagem
         }
-    }
+    } 
+    
 }
 ?>

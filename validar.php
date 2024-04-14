@@ -1,5 +1,5 @@
 <?php 
-    include "restrito/conexao.php";
+     include $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/conexao.php"; 
     session_start();
     if (isset($_POST['login'])) {
         $login = clear($conexao,$_POST['login']);
@@ -14,6 +14,8 @@
           if ($login == $linha['login_user'] and $senha == $linha['senha']) {
             session_start();
             $_SESSION['login_user'] = $linha['login_user'];
+            $_SESSION['id'] = $linha['id_usuario'];
+
             header("location: restrito");
           }
         }else{
@@ -33,7 +35,7 @@
     if (!isset($_SESSION['login_user'])) {
         echo "<script>
             confirm('Faça o login primeiro!');
-            window.location.href = '../index.php'; // Redireciona para a página de login
+            window.location.href = 'http://localhost/FormsPHP_MySQL/index.php'; // Redireciona para a página de login
         
       </script>";
       session_destroy();

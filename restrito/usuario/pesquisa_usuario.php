@@ -2,38 +2,47 @@
 
 <!doctype html>
 <html lang="pt-br">
-  <?php include_once './partials/head.php';?>
+<?php 
+
+ 
+include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/head.php";
+if($_SESSION['login_user'] != 'ADMIN'){
+     echo "<script>
+     confirm('Seu usuario não tem permissão para acessar essa página!!!');
+     window.location.href = 'http://localhost/FormsPHP_MySQL/restrito/index.php'; // Redireciona para a página home
+ 
+ </script>";
+ 
+ }?>
   
   <body style="background-color: #FFF7FC;">
-  <?php include_once './partials/nav.php'?>
+  <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/nav.php";?>
 
   <?php 
   
-        $pesquisa = $_POST['busca'] ?? '' ;
+        $pesquisa = $_POST['busca_user'] ?? '' ;
    
-    include_once "conexao.php";
-    $sql = "SELECT * FROM pessoa WHERE nome LIKE  '%$pesquisa%'";
-    $dados = mysqli_query($conexao,$sql);
+        include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/conexao.php";
+        $sql = "SELECT * FROM usuarios WHERE login_user LIKE  '%$pesquisa%'";
+       $dados = mysqli_query($conexao,$sql);
    
   ?>
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>Pesquisar</h1>
+                <h1>Pesquisar Usuário</h1>
             <nav class="navbar navbar-light bg-light">
-                 <form class="form-inline" action="pesquisa.php" method="POST">
-                 <input class="form-control mr-sm-2" type="search" placeholder="Nome" aria-label="Pesquisar" name="busca" autofocus>
+                 <form class="form-inline" action="pesquisa_usuario.php" method="POST">
+                 <input class="form-control mr-sm-2" type="search" placeholder="Nome" aria-label="Pesquisar" name="busca_user" autofocus>
                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
              </form>
             </nav>
                         <table class="table table-hover">
             <thead>
                 <tr>
-                <th scope="col">Foto</th>
+                <th scope="col">Foto User</th>
+                <th scope="col">Login User</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Endereço</th>
-                <th scope="col">Telefone</th>
-                <th scope="col">Data de Nascimento</th>
                 <th scope="col">Email</th>
                 <th scope="col"></th>
 
@@ -42,24 +51,20 @@
             <tbody>
                 <?php 
                     while($linha = mysqli_fetch_assoc($dados)) {
-                        $cod_pessoa = $linha['cod_pessoa'];
+                        $id_usuario = $linha['id_usuario'];
+                        $login_user = $linha['login_user'];
                         $nome = $linha['nome'];
-                        $endereco = $linha['endereco'];
-                        $telefone = $linha['telefone'];
                         $email = $linha['email'];
-                        $data_de_nascimento = mostraData($linha['data_nascimento']);
                         $foto = verificaImagem($linha['foto']);
                         
                         echo
                         "<tr>
-                        <td ><img src='img/$foto' class='lista_foto'></td>
-                        <th scope='row'>$nome</th>
-                        <td>$endereco</td>
-                        <td>$telefone</td>
+                        <td ><img src='../img/$foto' class='lista_foto'></td>
+                        <th scope='row'>$login_user</th>
+                        <td>$nome</td>
                         <td>$email</td>
-                        <td>$data_de_nascimento</td>
-                        <td><a href='cadastro_edit.php?id=$cod_pessoa' class='btn btn-success btn-sm'>Editar</a>
-                        <a href='#' class='btn btn-danger btn-sm' data-toggle='modal' data-target='#confirma'onclick=".'"'."pegar_dados($cod_pessoa, '$nome')".'"'.">Excluir </a></td>
+                        <td><a href='edit_usuario.php?id=$id_usuario' class='btn btn-success btn-sm'>Editar</a>
+                        <a href='#' class='btn btn-danger btn-sm' data-toggle='modal' data-target='#confirma'onclick=".'"'."pegar_dados($id_usuario, '$login_user')".'"'.">Excluir </a></td>
                         </tr>";
                     }
                 
@@ -79,12 +84,12 @@
         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="excluir_script.php" method="POST">
+        <form action="excluir_script_user.php" method="POST">
              <p>Deseja excluir <b id="nome_pessoa">Nome da pessoa</b>?</p>
              
                 <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                     <input type="hidden" name="id" id="cod_pessoa">
+                     <input type="hidden" name="id" id="id_usuario">
                      <input type="hidden" name="nome" id="nome_pessoa1">
                       <input type="submit" class="btn btn-danger" value="Sim">
                  </div>
@@ -97,13 +102,13 @@
     <script>
         function pegar_dados(id,nome) {
             document.getElementById('nome_pessoa').innerHTML = nome;
-            document.getElementById('cod_pessoa').value = id;
+            document.getElementById('id_usuario').value = id;
             document.getElementById('nome_pessoa1').value = nome;
             document.getElementById('nome_pessoa1').value = foto;
 
         }
     </script>
-   <?php include_once './partials/scripts.php';?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/scripts.php";?>
    
 
   </body>

@@ -15,6 +15,12 @@
         <li class="nav-item">
           <a class="nav-link" href="http://localhost/FormsPHP_MySQL/cadastro.php">Cadastrar</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost/FormsPHP_MySQL/restrito/cliente/index.php">Área Cliente</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost/FormsPHP_MySQL/restrito/usuario/index.php">Área Usuário</a>
+        </li>
             
       </ul>
 

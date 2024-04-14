@@ -1,15 +1,18 @@
 
 <!doctype html>
 <html lang="pt-br">
-<?php include_once './partials/head.php';?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/head.php";?>
+
   
   <body style="background-color: #FFF7FC;">
-  <?php include_once './partials/nav.php'?>
+  <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/nav.php";?>
+  
 
     <div class="container">
         <div class="row">
            <?php 
-            include_once "./conexao.php";
+          include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/conexao.php";
+            
             $nome = clear($conexao,$_POST['nome']);
             $endereco = clear($conexao, $_POST['endereco']);
             $telefone = clear($conexao,$_POST['telefone']);
@@ -27,7 +30,7 @@
                 mensagem("$nome não adicionou nenhuma foto!","danger");
               }
               $nome_foto = verificaImagem($nome_foto);
-              echo "<img class='mostra_foto' src='img/$nome_foto' title='$nome_foto'>";
+              echo "<img class='mostra_foto' src='../img/$nome_foto' title='$nome_foto'>";
               
              
                mensagem("$nome cadastrado com sucesso","success");
@@ -37,11 +40,11 @@
 
            
            ?>
-           <a href="index.php" class="btn btn-primary">Voltar</a>
+           <a href="./index.php" class="btn btn-primary">Voltar</a>
         </div>
    </div>
    
-   <?php include_once './partials/scripts.php';?>
+   <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/scripts.php";?>
   
 
   </body>
