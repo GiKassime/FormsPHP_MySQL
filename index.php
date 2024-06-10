@@ -3,14 +3,12 @@
 <html lang="pt-br" data-bs-theme="light">
   
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
-    <link rel="stylesheet" href="./restrito/css/bootstrap.min.css" >
-    <link rel="stylesheet" href="./restrito/css/style.css" >
+     <?php require_once './restrito/partials/head.php'?>
   </head>
   <body  >
   <?php include_once './restrito/partials/nav.php'?>
+
    
     <div class="container" >
         <div class="row  w-100 p-3 d-flex flex-column text-center  justify-content-center" style="margin:1%;">
@@ -40,7 +38,7 @@
           </div>
         </div>    
     </div>
-    
+</div>
     <script>
       
       let alerta = document.getElementById("alert");

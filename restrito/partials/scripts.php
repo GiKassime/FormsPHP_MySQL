@@ -21,3 +21,17 @@
 
         botao.addEventListener("click", trocarTema);
     </script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+
+    // Mostrar a modal de erro
+    errorModal.show();
+
+    // Desabilitar todos os elementos interativos na página
+    var elementosInterativos = document.querySelectorAll('button, a, input, select, textarea, nav');
+    elementosInterativos.forEach(function(elemento) {
+        elemento.disabled = true;
+    });
+});
+</script>

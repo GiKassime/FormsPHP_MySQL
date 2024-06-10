@@ -21,7 +21,7 @@
              </div>
         </div>    
     </div>
-
+  
  
    
     <?php include_once './partials/scripts.php';?>

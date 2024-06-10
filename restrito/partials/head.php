@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="http://localhost/FormsPHP_MySQL/restrito/css/bootstrap.min.css" >
     <link rel="stylesheet" href="http://localhost/FormsPHP_MySQL/restrito/css/style.css" >
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/validar.php"; ?>
+    <link rel="icon" href="http://localhost/FormsPHP_MySQL/restrito/img/icon.png" type="image/x-icon">
+
 
 
   </head>
