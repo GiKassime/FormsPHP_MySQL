@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/head.php";?>
   
-  <body style="background-color: #FFF7FC;">
+  <body >
   <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/nav.php";?>
 
   <?php 
@@ -32,10 +32,9 @@
 
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email"
-                        value="<?php echo $linha['email'];?>">
-
+                         <label for="email">Email</label>
+                          <input type="email" class="form-control" name="email" id="email" value="<?php echo $linha['email'];?>">
+                          <span id="emailError" style="color: red;"></span>
                     </div>
                     <div class="form-group">
                       <label for="foto"><img src="../img/<?php echo $linha['foto'];?>" class="mostra_foto">Foto</label>
@@ -50,7 +49,8 @@
             </div>        
         </div>
    </div>
-   
+
+
    <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/scripts.php";?>
    
 

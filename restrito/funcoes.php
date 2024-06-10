@@ -51,4 +51,18 @@ function excluiImagem($imagem) {
     } 
     
 }
+function verificaEmail($email, $conexao){
+    $query_select = "SELECT email FROM usuarios WHERE BINARY email = '$email'";
+    $select = mysqli_query($conexao, $query_select);
+    echo "Cheguei aqui";
+    if (!$select) {
+        die("Erro na consulta: " . mysqli_error($conexao));
+    }
+
+    if (mysqli_num_rows($select) > 0) {
+        echo 'exists';
+    } else {
+        echo 'not_exists';
+    }
+}
 ?>

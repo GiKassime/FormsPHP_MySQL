@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./restrito/css/bootstrap.min.css" >
     <link rel="stylesheet" href="./restrito/css/style.css" >
   </head>
-  <body style="background-color: #FFF7FC;">
+  <body >
   <?php include_once './restrito/partials/nav.php'?>
 
     <div class="container">
@@ -76,15 +76,12 @@
 
         // Verificar a força da senha
         let strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
-        let mediumRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.{6,})");
+        
         
         if (strongRegex.test(senha)) {
             senhaError.innerHTML = "";
             submitButton.disabled = false; // Ativar o botão de envio
-        } else if (mediumRegex.test(senha)) {
-            senhaError.innerHTML = "Senha média (use letras maiúsculas, minúsculas e números).";
-            submitButton.disabled = true; // Desativar o botão de envio
-        } else {
+        }else {
             senhaError.innerHTML = "Senha fraca (use letras maiúsculas, minúsculas, números e pelo menos 8 caracteres).";
             submitButton.disabled = true; // Desativar o botão de envio
         }

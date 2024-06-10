@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-br">
   <?php include_once './partials/head.php';?>
-  <body style="background-color: #FFF7FC;">
+  <body>
   <?php include_once './partials/nav.php'?>
 
     <div class="container">
@@ -13,9 +13,9 @@
             </div>
             <div >
                  <a style="font-size:calc(0.6vw + 20px);" href="http://localhost/FormsPHP_MySQL/restrito/cliente/index.php" class="btn btn-primary">Área Cliente</a>
-                 <a  style="font-size:calc(0.6vw + 20px);" href="http://localhost/FormsPHP_MySQL/restrito/usuario/index.php" class="btn btn-info text-white">Área Usuário</a>
-              
-                
+                 <a  style="font-size:calc(0.6vw + 20px);" 
+                 href="http://localhost/FormsPHP_MySQL/restrito/usuario/index.php" class="btn btn-info text-white">Área Usuário</a>
+            
                 
                 
              </div>

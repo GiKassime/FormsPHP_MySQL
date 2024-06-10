@@ -5,7 +5,7 @@
 <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/head.php";?>
   
   
-  <body style="background-color: #FFF7FC;">
+  <body >
   <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/nav.php";?>
 
   <?php 
@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col">
                 <h1>Pesquisar</h1>
-            <nav class="navbar navbar-light bg-light">
+            <nav class="navbar">
                  <form class="form-inline" action="./pesquisa.php" method="POST">
                  <input class="form-control mr-sm-2" type="search" placeholder="Nome" aria-label="Pesquisar" name="busca" autofocus>
                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>

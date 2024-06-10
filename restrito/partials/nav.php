@@ -21,7 +21,7 @@
         <li class="nav-item">
           <a class="nav-link" href="http://localhost/FormsPHP_MySQL/restrito/usuario/index.php">Área Usuário</a>
         </li>
-            
+        <button type="button" class="btn btn-light" id="tema_botao" >DarkMode</button>
       </ul>
 
     </div>

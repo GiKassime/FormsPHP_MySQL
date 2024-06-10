@@ -15,7 +15,7 @@ if($_SESSION['login_user'] != 'ADMIN'){
  
  }?>
   
-  <body style="background-color: #FFF7FC;">
+  <body>
   <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/nav.php";?>
 
   <?php 

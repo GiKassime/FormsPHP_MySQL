@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-br">
   <?php include_once '../partials/head.php';?>
-  <body style="background-color: #FFF7FC;">
+  <body >
   <?php include_once '../partials/nav.php'?>
 
     <div class="container">

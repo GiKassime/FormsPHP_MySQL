@@ -1,6 +1,6 @@
 <?php session_start();?>
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-br" data-bs-theme="light">
   
   <head>
     <meta charset="utf-8">
@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="./restrito/css/bootstrap.min.css" >
     <link rel="stylesheet" href="./restrito/css/style.css" >
   </head>
-  <body style="background-color: #FFF7FC;">
+  <body  >
   <?php include_once './restrito/partials/nav.php'?>
-    <div class="container">
+   
+    <div class="container" >
         <div class="row  w-100 p-3 d-flex flex-column text-center  justify-content-center" style="margin:1%;">
             <div class="col">
             <h1  style="font-size:calc(1.73vw + 48.74px);">Login</h1>
@@ -26,17 +27,22 @@
               <input type="password" class="form-control" name="senha" required>
             </div>
             
-            <button type="submit" class="btn btn-success">Acessar</button>
+            <button type="submit" class="btn btn-secondary">Acessar</button>
               </form>
-              <a href="./cadastro.php" class="btn btn-primary btn-sm">Cadastre-se</a>
-              <?php include_once "restrito/conexao.php"; 
-            mensagem(isset($_SESSION["mensagem"]) ? $_SESSION["mensagem"] : '',isset($_SESSION["tipo"]) ? $_SESSION["tipo"] : 'primary');?> 
+              <a href="./cadastro.php" class="btn">Cadastre-se</a>
+ 
             </div>
+            <?php include_once "restrito/conexao.php";?>
+            <div class="alert  alert-dismissible fade show" id="alert" role="alert">
+            <?php include_once "restrito/conexao.php"; 
+            mensagem(isset($_SESSION["mensagem"]) ? $_SESSION["mensagem"] : '',isset($_SESSION["tipo"]) ? $_SESSION["tipo"] : 'primary');?> 
+                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+          </div>
         </div>    
     </div>
     
     <script>
-
+      
       let alerta = document.getElementById("alert");
       alerta.removeAttribute('hidden');
       if (alerta.innerText.trim() !== "") {
@@ -45,10 +51,9 @@
         alerta.remove(); // Remove o elemento se a mensagem estiver vazia
       }
       <?php unset($_SESSION["mensagem"]); ?> 
-  </script>
-   
+     </script>
+    
     <?php include_once './restrito/partials/scripts.php';?>
-   
-
+    
   </body>
 </html>

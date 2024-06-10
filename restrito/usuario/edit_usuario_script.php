@@ -6,7 +6,7 @@
 <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/FormsPHP_MySQL/restrito/partials/head.php";?>
 
   
-  <body style="background-color: #FFF7FC;">
+  <body >
     <div class="container">
         <div class="row">
            <?php 
